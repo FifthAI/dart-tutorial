@@ -16,7 +16,7 @@ class CrossIsolatesMessage<T> {
   });
 }
 
-void callerCreateIsolate() async {
+Future<void> callerCreateIsolate() async {
   print("EQ 新建isolate");
   ReceivePort receivePort = ReceivePort(); // 接收端口
   newIsolate = await Isolate.spawn(

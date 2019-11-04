@@ -1,15 +1,15 @@
 main(List<String> args) {
   /// if else
-  run_if_else();
-  run_wrong_if_else();
+  runIfElse();
+  runWrongIfElse();
 
-  run_assert(11, "df", "dfsdf");
+  runAssert(11, "df", "dfsdf");
 }
 
-run_if_else() {}
+runIfElse() {}
 
 /// 执行执行时抛出了异常，异常的意思是int类型不能复制给bool类型。
-run_wrong_if_else() {
+runWrongIfElse() {
   try {
     var a = 1;
     assert(a.runtimeType == bool);
@@ -23,7 +23,7 @@ run_wrong_if_else() {
 }
 
 ///
-run_for() {
+runFor() {
   var message = StringBuffer('Dart is fun');
 
   for (var i = 0; i < 5; i++) {
@@ -34,9 +34,9 @@ run_for() {
 }
 
 ///
-run_wrong_for() {}
+runWrongFor() {}
 
-run_assert(text, number, urlString) {
+runAssert(text, number, urlString) {
   // Make sure the variable has a non-null value.
   assert(text != null);
 
