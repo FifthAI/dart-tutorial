@@ -4,7 +4,7 @@ analyzer:
 
 linter:
   rules:
-#    - avoid_print # 生产环境代码不要使用print, 使用打印后，可以吧结果作为注释
+    - avoid_print # 生产环境代码不要使用print, 使用打印后，可以吧结果作为注释
     - avoid_empty_else # 避免空else代码块
     - avoid_init_to_null # 避免初始化为null
     - avoid_relative_lib_imports # 避免lib库的相对引用

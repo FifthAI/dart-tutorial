@@ -1,8 +1,9 @@
-# list
-- avoid_empty_else # 避免空else代码块
-- avoid_init_to_null # 避免初始化为null
-- avoid_relative_lib_imports # 避免lib库的相对引用
-- avoid_return_types_on_setters # 避免在setter方法返回类型
+# 翻译官方文档，自己够用即可。不保证完整正确
+- [avoid_empty_else](./avoid_empty_else.dart) # 避免空else代码块
+- [avoid_print](./avoid_print.dart)avoid_init_to_null # 避免初始化为null, 1.8里没有规定
+- [avoid_relative_lib_imports](./avoid_relative_lib_imports.dart) # 避免lib库的相对引用
+- [avoid_return_types_on_setters](./avoid_return_types_on_setters.dart) # 避免在setter方法返回类型
+- [avoid_returning_null_for_future](./avoid_returning_null_for_future.dart) # 避免让Future返回null, 1.8里没有规定
 - avoid_shadowing_type_parameters
 - avoid_types_as_parameter_names # 避免类型名作为参数名
 - curly_braces_in_flow_control_structures # 确保所有代码快都在大括号里
