@@ -32,4 +32,4 @@ linter:
     - unnecessary_null_in_if_null_operators # 避免参数赋值空，good：var x = a ?? 1;
     - unrelated_type_equality_checks # 避免不相关类型 == 比较； 就是说 比较两边的类型要一致
     - use_rethrow_when_possible # catch里不要使用throw；要使用rethrow关键字
-    - valid_regexps # 静态检查正则是否合法
+    - valid_regexps # 静态检查正则是否合法 [](./x05_analysis_options/valid_regexps.dart)
