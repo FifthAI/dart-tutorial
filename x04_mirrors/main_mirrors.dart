@@ -1,7 +1,8 @@
+/// 知道dart给 flutter禁用反射，但是测试dart项目，我也引用不到，先不研究了
 import "dart:mirrors";
 
 void main() {
-  var controller = new GenericController<Foo>();
+  var controller = GenericController<Foo>();
   controller.processRequest();
 }
 
@@ -46,8 +47,7 @@ class Activator {
           .newInstance(constructor, arguments, namedArguments)
           .reflectee;
     } else {
-      throw new ArgumentError(
-          "Cannot create the instance of the type '$type'.");
+      throw ArgumentError("Cannot create the instance of the type '$type'.");
     }
   }
 }

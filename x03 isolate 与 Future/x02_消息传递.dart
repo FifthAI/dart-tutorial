@@ -1,5 +1,6 @@
 /// 消息的收发方式
 import 'dart:isolate';
+
 import 'package:meta/meta.dart';
 
 SendPort newIsolateSendPort; // ioslate库，声明端口
