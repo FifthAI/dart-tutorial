@@ -9,7 +9,7 @@ linter:
     - avoid_init_to_null # 避免初始化为null
     - avoid_relative_lib_imports # 避免lib库的相对引用
     - avoid_return_types_on_setters # 避免在setter方法返回类型
-    - avoid_shadowing_type_parameters
+    - avoid_shadowing_type_parameters # 范型避免类型重合，这个还是要看例子才能理解。
     - avoid_types_as_parameter_names # 避免类型名作为参数名
     - curly_braces_in_flow_control_structures # 确保所有代码快都在大括号里
     - empty_catches # 避免空catch代码块

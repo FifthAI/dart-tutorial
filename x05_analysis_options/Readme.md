@@ -1,10 +1,9 @@
 # 翻译官方文档，自己够用即可。不保证完整正确
 - [avoid_empty_else](./avoid_empty_else.dart) # 避免空else代码块
-- [avoid_print](./avoid_print.dart)avoid_init_to_null # 避免初始化为null, 1.8里没有规定
+- [avoid_init_to_null](./avoid_init_to_null.dart) # 避免初始化为null
 - [avoid_relative_lib_imports](./avoid_relative_lib_imports.dart) # 避免lib库的相对引用
 - [avoid_return_types_on_setters](./avoid_return_types_on_setters.dart) # 避免在setter方法返回类型
-- [avoid_returning_null_for_future](./avoid_returning_null_for_future.dart) # 避免让Future返回null, 1.8里没有规定
-- avoid_shadowing_type_parameters
+- [avoid_shadowing_type_parameters](./avoid_shadowing_type_parameters.dart) # 范型临时类型命名不一致
 - avoid_types_as_parameter_names # 避免类型名作为参数名
 - curly_braces_in_flow_control_structures # 确保所有代码快都在大括号里
 - empty_catches # 避免空catch代码块
@@ -28,3 +27,7 @@
 - unrelated_type_equality_checks # 避免不相关类型 == 比较； 就是说 比较两边的类型要一致
 - use_rethrow_when_possible # catch里不要使用throw；要使用rethrow关键字
 - [valid_regexps](./valid_regexps.dart) # 静态检查正则是否合法 
+# 1.8里没有使用
+- [avoid_print](./avoid_print.dart) # 生产环境代码不要使用print, （个人建议打开，想查看数据结构的话，使用打印后，可以吧结果作为注释）
+- [avoid_returning_null_for_future](./avoid_returning_null_for_future.dart) # 避免让Future返回null, 
+- [avoid_slow_async_io](./avoid_slow_async_io.dart) # 避免慢io异步,基本都是文件操作，需要使用同步方法更快
