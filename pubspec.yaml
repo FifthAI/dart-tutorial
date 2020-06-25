@@ -2,9 +2,9 @@ name: dart_tutorial
 dependencies:
   meta: ^1.1.7
   http: ^0.12.0+2
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  flutter_test:
-    sdk: flutter
+  # flutter:
+  #   sdk: flutter
+  # flutter_localizations:
+  #   sdk: flutter
+  # flutter_test:
+  #   sdk: flutter
