@@ -25,12 +25,9 @@ abstract class RequestHandler {
 }
 
 class Activator {
-  static createInstance(Type type,
-      [Symbol constructor,
-      List arguments,
-      Map<Symbol, dynamic> namedArguments]) {
+  static createInstance(Type type, [Symbol constructor, List arguments, Map<Symbol, dynamic> namedArguments]) {
     if (type == null) {
-      throw new ArgumentError("type: $type");
+      throw ArgumentError("type: $type");
     }
 
     if (constructor == null) {
@@ -43,9 +40,7 @@ class Activator {
 
     var typeMirror = reflectType(type);
     if (typeMirror is ClassMirror) {
-      return typeMirror
-          .newInstance(constructor, arguments, namedArguments)
-          .reflectee;
+      return typeMirror.newInstance(constructor, arguments, namedArguments).reflectee;
     } else {
       throw ArgumentError("Cannot create the instance of the type '$type'.");
     }

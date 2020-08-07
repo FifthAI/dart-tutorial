@@ -8,20 +8,17 @@
 typedef S ItemCreator<S>();
 
 class PagedListData<T> {
+  T item;
   // ...
   ItemCreator<T> creator;
-  PagedListData(ItemCreator<T> this.creator) {}
+  PagedListData(this.creator);
 
   void performMagic() {
-    T item = creator();
+    item = creator();
     // ...
   }
 }
 
-class AAA {
+class AAA {}
 
-}
-
-
-PagedListData<AAA> users =
-    PagedListData<AAA>(() => AAA());
+PagedListData<AAA> users = PagedListData<AAA>(() => AAA());

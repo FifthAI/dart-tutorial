@@ -2,6 +2,10 @@ name: dart_tutorial
 dependencies:
   meta: ^1.1.7
   http: ^0.12.0+2
+  crypto: ^2.1.5
+  benchmark_harness: ">=1.0.0 <2.0.0"
+  analyzer_plugin_demo:
+    path: ./pub/analyzer_plugin_demo
   # flutter:
   #   sdk: flutter
   # flutter_localizations:

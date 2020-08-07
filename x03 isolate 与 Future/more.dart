@@ -6,7 +6,7 @@ import 'dart:isolate';
 /// 原文：
 /// https://blog.csdn.net/w411207/article/details/80026649
 main() async {
-  var receivePort = new ReceivePort();
+  var receivePort = ReceivePort();
   await Isolate.spawn(echo, receivePort.sendPort);
 
   // 'echo'发送的第一个message，是它的SendPort
@@ -21,7 +21,7 @@ main() async {
 /// 新isolate的入口函数
 echo(SendPort sendPort) async {
   // 实例化一个ReceivePort 以接收消息
-  var port = new ReceivePort();
+  var port = ReceivePort();
 
   // 把它的sendPort发送给宿主isolate，以便宿主可以给它发送消息
   sendPort.send(port.sendPort);
@@ -37,7 +37,7 @@ echo(SendPort sendPort) async {
 
 /// 对某个port发送消息，并接收结果
 Future sendReceive(SendPort port, msg) {
-  ReceivePort response = new ReceivePort();
+  ReceivePort response = ReceivePort();
   port.send([msg, response.sendPort]);
   return response.first;
 }

@@ -37,7 +37,9 @@ main(List<String> args) {
 // Call printAnimal(...) a lot of times with an intance of Cat.
 // As a result printAnimal(...) will be optimized under the
 // assumption that obj is always a Cat.
-  for (var i = 0; i < 50000; i++) printAnimal(Cat());
+  for (var i = 0; i < 50000; i++) {
+    printAnimal(Cat());
+  }
 
 // Now call printAnimal(...) with a Dog - optimized version
 // can not handle such an object, because it was

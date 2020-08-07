@@ -19,7 +19,9 @@ runWrongIfElse() {
     // } else {
     //   print('error');
     // }
-  } catch (e) {}
+  } catch (e) {
+    print(e);
+  }
 }
 
 ///

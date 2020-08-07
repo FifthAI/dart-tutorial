@@ -39,14 +39,14 @@ int syncFibonacci(int n) {
 Future<dynamic> asyncFibonacci(int n) async {
   //首先创建一个ReceivePort，为什么要创建这个？
   //因为创建isolate所需的参数，必须要有SendPort，SendPort需要ReceivePort来创建
-  final response = new ReceivePort();
+  final response = ReceivePort();
   //开始创建isolate,Isolate.spawn函数是isolate.dart里的代码,_isolate是我们自己实现的函数
   //_isolate是创建isolate必须要的参数。
   await Isolate.spawn(_isolate, response.sendPort);
   //获取sendPort来发送数据
   final sendPort = await response.first as SendPort;
   //接收消息的ReceivePort
-  final answer = new ReceivePort();
+  final answer = ReceivePort();
   //发送数据
   sendPort.send([n, answer.sendPort]);
   //获得数据并返回
@@ -55,7 +55,7 @@ Future<dynamic> asyncFibonacci(int n) async {
 
 //创建isolate必须要的参数
 void _isolate(SendPort initialReplyTo) {
-  final port = new ReceivePort();
+  final port = ReceivePort();
   //绑定
   initialReplyTo.send(port.sendPort);
   //监听

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:isolate';
 
 // 全局的isolate，函数方便获取
@@ -10,8 +9,7 @@ ReceivePort receivePort;
 start() async {
   receivePort = ReceivePort();
   // 孵化isolate
-  isolate = await Isolate.spawn(entryPoint, receivePort.sendPort,
-      debugName: 'newIsolate');
+  isolate = await Isolate.spawn(entryPoint, receivePort.sendPort, debugName: 'newIsolate');
 
   receivePort.listen((message) {
     // isolate的回调，抵达主isolate

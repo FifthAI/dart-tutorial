@@ -1,10 +1,18 @@
 # https://dart-lang.github.io/linter/lints/
 analyzer:
-  exclude: [代码片段/**]
+  exclude: # 这个忽略有个坑，你打开文件以后，这个忽略就失效了，可能是IDE插件问题，也可能是IDE加入分析的。
+    - 代码片段/**
+    - 'x03 isolate 与 Future/x03_Flutter之compute.dart'
+    - 'x03 isolate 与 Future/x05_flutter快速使用isolate.dart'
+    - x05_analysis_options/** # 这是展示静态分析效果的。由于上面提到的坑问题，打开文件就可以看到效果
+    - x12_annotation/sample2.dart # 同上
+    - pub/**
+  plugins:
+    - analyzer_plugin_demo
 
 linter:
   rules:
-    - avoid_print # 生产环境代码不要使用print, 使用打印后，可以吧结果作为注释
+    # - avoid_print # 生产环境代码不要使用print, 使用打印后，可以吧结果作为注释 // 本项目多数都是demo方法，print是常用方法。
     - avoid_empty_else # 避免空else代码块
     - avoid_init_to_null # 避免初始化为null
     - avoid_relative_lib_imports # 避免lib库的相对引用
