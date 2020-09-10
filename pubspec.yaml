@@ -1,11 +1,14 @@
 name: dart_tutorial
 dependencies:
+  logger: ^0.9.2 # 这个库代格式，但是需要dart启动加assets参数支持。踩了个坑
+  quick_log: ^1.1.3
+  # runtime: ^1.0.0-9 # aqueduct 的反射库，没研究出来怎么用
   meta: ^1.1.7
   http: ^0.12.0+2
   crypto: ^2.1.5
   benchmark_harness: ">=1.0.0 <2.0.0"
   analyzer_plugin_demo:
-    path: ./pub/analyzer_plugin_demo
+    path: ./pub/analyzer_plugin_demo_loader
   # flutter:
   #   sdk: flutter
   # flutter_localizations:

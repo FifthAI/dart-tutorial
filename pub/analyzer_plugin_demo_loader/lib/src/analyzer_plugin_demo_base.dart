@@ -12,12 +12,19 @@ import 'package:analyzer_plugin/starter.dart';
 import 'package:analyzer_plugin/utilities/assist/assist.dart';
 import 'package:analyzer_plugin/utilities/assist/assist_contributor_mixin.dart';
 import 'package:analyzer_plugin/utilities/change_builder/change_builder_core.dart';
+import 'package:analyzer_plugin/utilities/fixes/fix_contributor_mixin.dart';
+import 'package:analyzer_plugin/utilities/fixes/fixes.dart';
+import 'logger/log.dart';
+//---------------------------------------------------------
+
+var logPath = '$homePath/lyProjects/samples/dart_demos/pluginDemoIsRunAndLog.log';
+var log = QLogger.createOutputToFile('plugin_demo', filePath: logPath);
 
 class MyTodoPlugin extends ServerPlugin with AssistsMixin, DartAssistsMixin {
   MyTodoPlugin(ResourceProvider provider) : super(provider);
 
   @override
-  List<String> get fileGlobsToAnalyze => <String>['**/*.dart'];
+  List<String> get fileGlobsToAnalyze => <String>['**/*.dart', '**/*.log'];
   // 可以选定多种文件范围
   // List<String> get fileGlobsToAnalyze => <String>['*.dart', '*.html'];
 
@@ -33,6 +40,8 @@ class MyTodoPlugin extends ServerPlugin with AssistsMixin, DartAssistsMixin {
   /// 重要，分析器上下文
   @override
   AnalysisDriverGeneric createAnalysisDriver(ContextRoot contextRoot) {
+    log.info('createAnalysisDriver');
+    
     return null;
   }
 
@@ -71,36 +80,10 @@ class MyAssistContributor extends Object with AssistContributorMixin implements 
   }
 }
 
+//---------------------------------------------------------
 void start(List<String> args, SendPort sendPort) {
-  Future.delayed(Duration.zero, _writeAFile);
+  log.info('-----------restarted-------------');
+  // 测试插件是否执行，执行后，demo路径下生成一个文件。
+  //Future.delayed(Duration.zero, _writeAFile);
   ServerPluginStarter(MyTodoPlugin(PhysicalResourceProvider.INSTANCE)).start(sendPort);
 }
-
-String get _homePath {
-  // String os = io.Platform.operatingSystem;
-  String home = "";
-  Map<String, String> envVars = io.Platform.environment;
-  if (io.Platform.isMacOS) {
-    home = envVars['HOME'];
-  } else if (io.Platform.isLinux) {
-    home = envVars['HOME'];
-  } else if (io.Platform.isWindows) {
-    home = envVars['UserProfile'];
-  }
-  return home;
-}
-
-Future<void> _writeAFile() async {
-  var strPath = '$_homePath/lyProjects/samples/dart_demos/pluginDemoIsRun.txt';
-  print(strPath);
-  var myFile = io.File(strPath);
-  myFile.createSync(recursive: true);
-  var sink = myFile.openWrite();
-  sink.write('hello plugin!');
-  await sink.flush();
-  await sink.close();
-}
-
-// main(List<String> args) async {
-//   await _writeAFile();
-// }

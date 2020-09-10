@@ -1,4 +1,10 @@
-代码分析插件，这部分属于用代码检查代码。而且项目组织有些乱。
+代码分析插件，这部分属于`用代码`去`检查代码`。而且项目组织有些乱。因为插件附加到server执行，tools下的子启动项目会被复制到analyzer-server的cache路径。所以pubspec.yaml的依赖需要能定位到。
+
+这里有坑：
+1. 相对路径获取不到，
+2. 打包上传仓库费劲
+3. 推荐，绝对路径，进行开发；
+
 # 静态分析
 
 代码提示，代码高亮是由多方面组成的，官方提供了静态分析工具analyzer，分析的结果交由IDE插件，就可以着色高亮；
@@ -50,3 +56,14 @@ void main(List<String> args, SendPort sendPort) {
 
 # 关于版本号，依赖规范 - 语义化版本 2.0.0
 [语义化版本 2.0.0](https://semver.org/lang/zh-CN/)
+
+
+
+
+
+# to be continue
+dart collection : https://en.wikipedia.org/wiki/Cheney's_algorithm
+
+https://github.com/dart-lang/sdk/blob/master/pkg/analyzer_plugin/doc/tutorial/tutorial.md
+https://github.com/dart-lang/angular/blob/master/angular_analyzer_plugin/lib/plugin.dart
+https://github.com/dart-lang/sdk/blob/master/pkg/analyzer_plugin/test/test_all.dart

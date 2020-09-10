@@ -6,9 +6,12 @@
 * vscode
 * vscode `Dart`插件 (`Flutter`插件也可)
 * vscode `Code Runner`插件
+* pub文件夹下是插件，analysis options中已经忽略。修改最好单独打开项目
 
 > 每个*.dart脚本都携带main方法  
 > 使用`Code Runner`插件可方便执行脚本程序 `Ctrl+Alt+N`
+
+
 
 # 模块介绍
 * aqueduct 3.3.0
